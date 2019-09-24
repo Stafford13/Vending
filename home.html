@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vending Machine</title>
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+<style>
+.button {
+  padding: 25px 40px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #000;
+  width: 200px;
+  background-color: #FFF;
+  background-image: linear-gradient(to bottom right, white, lightblue);
+  border: 1px solid #000;
+  border-radius: 7px;
+  box-shadow: 0 9px #999;
+}
+
+.button1 {
+  text-align: center;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 7px;
+  box-shadow: 0 2px #999;
+}
+
+.button:hover {background-color: lightgrey}
+
+.button:active {
+  background-color: darkgrey;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button1:active {
+  background-color: darkgrey;
+}
+
+#grad1 {
+  height: 1000px;
+  background-color: lightblue;
+  background-image: linear-gradient(to bottom right, lightblue, lightgreen);
+}
+        </style>
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="js/home.js"></script>
+    </head>
+
+
+<body id="grad1">
+  <div class="container text-center">
+    <h1>Eric's Vending Machine</h1>
+    <hr/>
+    <div class="row">
+      <div class="col-med-9">
+
+        <div id="vendingMachineOptions">
+          <div class="row">
+              <div class="col-md-4">
+                  <button value=1 id="item-1" class="button">
+                      <p id="itemNumber1"class="text-left">1</p>
+                      <p id="itemName1">Snickers</p>
+                      <p id="itemPrice1">$1.85</p>
+                      <p id="itemQuantity1">Quantity Left:</p>
+                  </button>
+              </div>
+              <div class="col-md-4">
+                  <button value=2 id="item-2" type="button" class="button">
+                      <p id="itemNumber2" class="text-left">2</p>
+                      <p id="itemName2">M&M's</p>
+                      <p id="itemPrice2">$1.50</p>
+                      <p id="itemQuantity2">Quantity Left:</p>
+                  </button>
+              </div>
+              <div id="item-3" class="col-md-4">
+                  <button value=3 type="button" class="button">
+                      <p id="itemNumber3"class="text-left">3</p>
+                      <p id="itemName3">Pringles</p>
+                      <p id="itemPrice3">$2.10</p>
+                      <p id="itemQuantity3">Quantity Left:</p>
+                  </button>
+              </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div id="item-4" class="col-md-4">
+                <button value=4 type="button" class="button">
+                    <p id="itemNumber4" class="text-left">4</p>
+                    <p id="itemName4">Reese's</p>
+                    <p id="itemPrice4">$1.85</p>
+                    <p id="itemQuantity4">Quantity Left:</p>
+                </button>
+            </div>
+            <div id="item-5" class="col-md-4">
+                <button value=5 type="button" class="button">
+                    <p id="itemNumber5" class="text-left">5</p>
+                    <p id="itemName5">Pretzels</p>
+                    <p id="itemPrice5">$1.25</p>
+                    <p id="itemQuantity5">Quantity Left:</p>
+                </button>
+            </div>
+            <div id="item-6" class="col-md-4">
+                <button value=6 type="button" class="button">
+                    <p id="itemNumber6" class="text-left">6</p>
+                    <p id="itemName6">Zebra Cakes</p>
+                    <p id="itemPrice6">$1.95</p>
+                    <p id="itemQuantity6">Quantity Left:</p>
+                </button>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div id="item-7" class="col-md-4">
+                <button value=7 type="button" class="button btn-default">
+                    <p id="itemNumber7" class="text-left">7</p>
+                    <p id="itemName7">Sun Chips</p>
+                    <p id="itemPrice7">$1.75</p>
+                    <p id="itemQuantity7">Quantity Left:</p>
+                </button>
+            </div>
+            <div id="item-8" class="col-md-4">
+                <button value=8 type="button" class="button btn-default">
+                    <p id="itemNumber8" class="text-left">8</p>
+                    <p id="itemName8">Almond Joy</p>
+                    <p id="itemPrice8">$1.85</p>
+                    <p id="itemQuantity8">Quantity Left:</p>
+                </button>
+            </div>
+            <div id="item-9" class="col-md-4">
+                <button value=9 type="button" class="button btn-default">
+                    <p id="itemNumber9" class="text-left">9</p>
+                    <p id="itemName9">Twizzlers</p>
+                    <p id="itemPrice9">$2.20</P>
+                    <p id="itemQuantity9">Quantity Left:</p>
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-5">
+        <h3>Total $ In</h3>
+        <!-- <div>
+        <form class="col-md-6 center-align"> -->
+            <form>
+                  <input type="text" id="totalMoneyDisplay" value="0.00" readonly>
+                </form>
+                 <br>
+      <!-- </div> -->
+        <div class="row">
+          <div class="col-md-6">
+              <button id="addDollar" type="button" class="button1 btn-default">
+                  Add Dollar
+              </button>
+          </div>
+        <div  class="col-md-6">
+            <button id="addQuarter" type="button" class="button1 btn-default">
+                Add Quarter
+            </button>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div id="addDime" class="col-md-6">
+            <button type="button" class="button1 btn-default">
+                Add Dime
+            </button>
+        </div>
+        <div id="addNickel" class="col-md-6">
+            <button type="button" class="button1 btn-default">
+                Add Nickel
+            </button>
+        </div>
+      </div>
+        <hr/>
+        <h3>Messages</h3>
+        <div class="col-md-12">
+          <form>
+                <input type="text" id="amountDisplay" placeholder="Message: " readonly>
+              </form>
+                  <br>
+                  <!-- <p>Item #</p> -->
+                  <form>
+                      <div class="form-group">
+                            <input type="text" id="itemDisplay" value="" placeholder="Item: " readonly>
+                          </div>
+                        </form>
+                      <br>
+                <!--  TO DO: make item  and idNumber box -->
+            <button type="button" id="makePurchase" class="button1 btn-default">
+                Make Purchase
+            </button>
+        </div>
+        <hr/>
+        <h3>Change</h3>
+        <div class="col-md-12">
+          <form>
+                <input type="text" id="changeDisplay" placeholder="" readonly>
+              </form>
+              <br>
+            <button type="button" id="returnChange" class="button1 btn-default">
+                Return Change
+            </button>
+        </div>
+        <hr/>
+      </div>
+    </div>
+
+
+    <!-- <div class="row">
+      <ul class="list-group">
+        <div class="row">
+          <li class="col-md-4">
+              <button type="button" id="add-button-7" class="button btn-default">
+                  <p class="text-left">96</p>
+                  <p>Chaaaaps</p>
+                  <p>$1.75</p>
+                  <p>Quantity Left:</p>
+              </button>
+          </li>
+          <li class="col-md-4">
+              <button type="button" id="add-button-2" class="button btn-default">
+                  <p class="text-left">2</p>
+                  <p>M&M's</p>
+                  <p>$1.50</p>
+                  <p>Quantity Left:</p>
+              </button>
+          </li>
+          <li class="col-md-4">
+              <button type="button" id="add-button-3" class="button btn-default">
+                  <p class="text-left">3</p>
+                  <p>Pringles</p>
+                  <p>$2.10</p>
+                  <p>Quantity Left:</p>
+              </button>
+          </li>
+      </div>
+      <br>
+      <div class="row">
+        <li class="col-md-4">
+            <button type="button" id="add-button-4" class="button btn-default">
+                <p class="text-left">4</p>
+                <p>Reese's</p>
+                <p>$1.85</p>
+                <p>Quantity Left:</p>
+            </button>
+        </li>
+      </div>
+        </div>
+      </ul>
+    </div> -->
+
+
+
+  </div>
+<!-- title
+70% 30% split
+9 divs on left
+three side sections on right
+  Total $ in
+  Messages
+  Change
+-->
+
+
+</body>
+</html>
